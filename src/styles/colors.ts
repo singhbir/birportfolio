@@ -5,4 +5,6 @@ export default {
   navfontcolor: '#A4ACC4',
   navhovercolor: '#0D7DFA',
   mainbackgroundblue: '#10121B',
+  fontcolorgrey: '#a4acc4',
+  fontblue: '#037fff',
 };
