@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     min-height: 100%;
     min-width: 100%;
-    overflow-y:hidden;
+    overflow:hidden;
   }
 
   p,

@@ -1,4 +1,6 @@
 import { AboutmeState } from 'app/containers/Aboutme/types';
+import { ResumeState } from 'app/containers/Resume/types';
+
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -7,5 +9,6 @@ import { AboutmeState } from 'app/containers/Aboutme/types';
 */
 export interface RootState {
   aboutme?: AboutmeState;
+  resume?: ResumeState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

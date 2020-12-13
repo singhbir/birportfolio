@@ -15,6 +15,7 @@ import { slideOutLeft } from 'react-animations';
 
 interface styledNavIconProps {
   position: string;
+  right: string;
 }
 
 interface styledAnimationProps {
@@ -60,6 +61,8 @@ const Maindiv = styled.div`
   flex-direction: column;
   align-items: center;
   width: 20vw;
+  position: fixed;
+  height: 100%;
   background: ${colors.navpurpleblue};
   .flexprops {
     flex: 1;
@@ -77,6 +80,7 @@ const Img = styled.img`
 `;
 
 const SlideDiv = styled.div`
+  position: fixed;
   animation: 1s
     ${(props: styledAnimationProps) =>
       props.inAnimation ? slideInAnimation : slideOutAnimation};
@@ -86,7 +90,7 @@ const NavMobileIcon = styled.div`
   height: 50px;
   width: 50px;
   position: ${(props: styledNavIconProps) => props.position};
-  right: -5px;
+  right: ${(props: styledNavIconProps) => props.right};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,7 +139,12 @@ export function NavbarPortfolio({ history }) {
         style={mobile ? { width: '50vw', height: '100vh' } : {}}
       >
         <div className="ml-2 pb-4 imagearea">
-          <Img src={birimg} alt="userimage" className="img-fluid" />
+          <Img
+            src={birimg}
+            alt="userimage"
+            className="img-fluid"
+            style={mobile ? { height: '125px', width: '125px' } : {}}
+          />
         </div>
         <div className="flexprops d-flex flex-colum mt-3">
           <Styledul className="pr-3">
@@ -170,12 +179,20 @@ export function NavbarPortfolio({ history }) {
         {showNavBar ? (
           <SlideDiv className="d-flex" inAnimation={true}>
             <WebNavBar mobile={true} />
-            <NavMobileIcon position="absolute" onClick={handleNavClick}>
+            <NavMobileIcon
+              position="absolute"
+              right="-20px"
+              onClick={handleNavClick}
+            >
               <AiOutlineCaretLeft />
             </NavMobileIcon>
           </SlideDiv>
         ) : (
-          <NavMobileIcon position="relative" onClick={handleNavClick}>
+          <NavMobileIcon
+            position="relative"
+            right="-5px"
+            onClick={handleNavClick}
+          >
             <AiOutlineCaretRight />
           </NavMobileIcon>
         )}

@@ -54,7 +54,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       >
         <NavbarPortfolio history={history} />
       </Row>
-      <Row style={{ flex: 1, height: '100vh' }}>
+      <Row style={{ flex: 1 }}>
         <BG>{children}</BG>
       </Row>
     </Container>

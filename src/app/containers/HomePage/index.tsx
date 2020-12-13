@@ -66,7 +66,7 @@ export function HomePage({ history }) {
       <MainLayout history={history}>
         <Typostyles>
           <Heading>
-            Hi, I am <span className="name">Birvarinder Singh</span>
+            Hi, I am <span className="name">Bir Singh</span>
           </Heading>
           <br />
           <Subheading>
@@ -76,8 +76,9 @@ export function HomePage({ history }) {
           </Subheading>
           <SocialArea />
         </Typostyles>
-
-        <Particlesnow />
+        <div style={{ height: '100vh' }}>
+          <Particlesnow />
+        </div>
       </MainLayout>
     </>
   );
