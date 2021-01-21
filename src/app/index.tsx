@@ -16,6 +16,7 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { Aboutme } from './containers/Aboutme/Loadable';
 import { Resume } from './containers/Resume/Loadable';
+import { Portfolio } from './containers/Portfolio/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -32,6 +33,7 @@ export function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/about" component={Aboutme} />
         <Route exact path="/resume" component={Resume} />
+        <Route exact path="/portfolio" component={Portfolio} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>

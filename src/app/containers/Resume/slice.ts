@@ -5,6 +5,9 @@ export const initialState = {
   loading: false,
   skillsdata: [],
   error: null,
+  resumedata: [],
+  loadresumedata: false,
+  errorresumedata: null,
 };
 
 const resumeSlice = createSlice({
@@ -25,6 +28,21 @@ const resumeSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
       state.skillsdata = [];
+    },
+    loadResumeData(state) {
+      state.loadresumedata = true;
+      state.errorresumedata = null;
+      state.resumedata = [];
+    },
+    successResumeData(state, action) {
+      state.loadresumedata = false;
+      state.errorresumedata = null;
+      state.resumedata = action.payload;
+    },
+    failResumeData(state, action) {
+      state.loadresumedata = false;
+      state.errorresumedata = action.payload;
+      state.resumedata = [];
     },
   },
 });

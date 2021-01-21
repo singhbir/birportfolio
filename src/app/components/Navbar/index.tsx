@@ -30,10 +30,11 @@ const Styledul = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   .li {
     width: 100%;
+    margin: 3px 0;
     color: ${colors.navfontcolor};
     text-align: center;
     text-decoration: none;
@@ -136,7 +137,7 @@ export function NavbarPortfolio({ history }) {
     return (
       <Maindiv
         className="py-4"
-        style={mobile ? { width: '50vw', height: '100vh' } : {}}
+        style={mobile ? { width: '70vw', height: '100vh' } : {}}
       >
         <div className="ml-2 pb-4 imagearea">
           <Img

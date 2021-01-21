@@ -10,13 +10,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 import { reducer, sliceKey, resumeActions } from './slice';
-import { selectLoading, selectSkillData, selecterror } from './selectors';
+import {
+  selectLoading,
+  selectSkillData,
+  selecterror,
+  selectResumeData,
+  selectResumeLoading,
+} from './selectors';
 import { resumeSaga } from './saga';
 import { MainLayout } from 'app/components/MainLayout/Loadable';
 import { Header } from 'app/components/Header/Loadable';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
 import colors from '../../../styles/colors';
 import { Loaderbars } from 'app/components/Loaderbars/Loadable';
+import { Expbar } from 'app/components/Expbar/Loadable';
+import { RiSuitcaseLine } from 'react-icons/ri';
+import { BiBook } from 'react-icons/bi';
 
 interface Props {
   history: object;
@@ -28,7 +37,9 @@ export function Resume(props: Props) {
   const skillData = useSelector(selectSkillData);
   const loading = useSelector(selectLoading);
   const error = useSelector(selecterror);
-  console.log(loading);
+  let resumeData = useSelector(selectResumeData);
+  const loadingResumeData = useSelector(selectResumeLoading);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   // const resume = useSelector(selectResume);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -49,7 +60,6 @@ export function Resume(props: Props) {
         <div className="skillarea">
           <div className="percentage">{per}% &nbsp;&nbsp;&nbsp;</div>
           <ProgressBar
-            animated
             now={per}
             style={{ width: '100%', height: '0.5rem', marginTop: '2%' }}
           />
@@ -70,9 +80,13 @@ export function Resume(props: Props) {
           <Row>
             {!loading ? (
               error === null ? (
-                skillData.map(item => {
+                skillData.map((item, i) => {
                   return (
-                    <SkillPresenter title={item.title} per={item.percentage} />
+                    <SkillPresenter
+                      title={item.title}
+                      per={item.percentage}
+                      key={i}
+                    />
                   );
                 })
               ) : (
@@ -82,6 +96,35 @@ export function Resume(props: Props) {
               <Loaderbars />
             )}
           </Row>
+          <div className="headermargin">
+            <Header title="Resume" />
+          </div>
+          <div>
+            <h4 className="subhead">
+              <RiSuitcaseLine className="icon" />
+              &nbsp; Working Experience
+            </h4>
+            <div>
+              {resumeData.length > 0 ? (
+                <Expbar data={resumeData} vidata={'work'} />
+              ) : (
+                <h1 className="text-white">Something went wrong...</h1>
+              )}
+            </div>
+          </div>
+          <div>
+            <h4 className="subhead">
+              <BiBook className="icon" />
+              &nbsp; Educational Qualifications
+            </h4>
+            <div>
+              {resumeData.length > 0 ? (
+                <Expbar data={resumeData} vidata={'edu'} />
+              ) : (
+                <h1 className="text-white">Something went wrong...</h1>
+              )}
+            </div>
+          </div>
         </Div>
       </MainLayout>
     </>
@@ -96,6 +139,21 @@ const Div = styled.div`
   .skillarea {
     height: 40%;
     display: flex;
+  }
+  .headermargin {
+    margin-top: 3em;
+  }
+  .subhead {
+    color: white;
+    margin-left: 7px;
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Concert One', cursive;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    font-size: 2em;
+  }
+  .icon {
+    color: ${colors.fontcolorgrey};
   }
   .skillname {
     color: white;

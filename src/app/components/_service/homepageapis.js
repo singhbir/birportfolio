@@ -10,8 +10,21 @@ const getquotes = async url => {
 };
 
 const getSkillData = async () => {
-  console.log(baseURL + 'skills');
   let response = await axios.get(baseURL + 'skills');
+  let data = response.data;
+  return data;
+};
+
+const getResumeData = async () => {
+  console.log('resume api called');
+
+  let response = await axios.get(baseURL + 'resumes');
+  let data = response.data;
+  return data;
+};
+
+const getProjects = async () => {
+  let response = await axios.get(baseURL + 'projects');
   let data = response.data;
   return data;
 };
@@ -19,4 +32,6 @@ const getSkillData = async () => {
 export default {
   getquotes,
   getSkillData,
+  getResumeData,
+  getProjects,
 };
