@@ -99,32 +99,38 @@ export function Resume(props: Props) {
           <div className="headermargin">
             <Header title="Resume" />
           </div>
-          <div>
-            <h4 className="subhead">
-              <RiSuitcaseLine className="icon" />
-              &nbsp; Working Experience
-            </h4>
-            <div>
-              {resumeData.length > 0 ? (
-                <Expbar data={resumeData} vidata={'work'} />
-              ) : (
-                <h1 className="text-white">Something went wrong...</h1>
-              )}
-            </div>
-          </div>
-          <div>
-            <h4 className="subhead">
-              <BiBook className="icon" />
-              &nbsp; Educational Qualifications
-            </h4>
-            <div>
-              {resumeData.length > 0 ? (
-                <Expbar data={resumeData} vidata={'edu'} />
-              ) : (
-                <h1 className="text-white">Something went wrong...</h1>
-              )}
-            </div>
-          </div>
+          {!loadingResumeData ? (
+            <>
+              <div>
+                <h4 className="subhead">
+                  <RiSuitcaseLine className="icon" />
+                  &nbsp; Working Experience
+                </h4>
+                <div>
+                  {resumeData.length <= 0 && !loadingResumeData ? (
+                    <h1 className="text-white">Updating ...</h1>
+                  ) : (
+                    <Expbar data={resumeData} vidata={'work'} />
+                  )}
+                </div>
+              </div>
+              <div>
+                <h4 className="subhead">
+                  <BiBook className="icon" />
+                  &nbsp; Educational Qualifications
+                </h4>
+                <div>
+                  {resumeData.length <= 0 && !loadingResumeData ? (
+                    <h1 className="text-white">Updating ...</h1>
+                  ) : (
+                    <Expbar data={resumeData} vidata={'edu'} />
+                  )}
+                </div>
+              </div>
+            </>
+          ) : (
+            <Loaderbars />
+          )}
         </Div>
       </MainLayout>
     </>

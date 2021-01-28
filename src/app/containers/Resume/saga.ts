@@ -7,7 +7,7 @@ export function* resumeWorker() {
   try {
     let data = yield call(homepageapis.getSkillData);
     let resumedata = yield call(homepageapis.getResumeData);
-
+    yield put(resumeActions.loadResumeData());
     if (data?.length > 0) {
       yield put(resumeActions.successSkillData(data));
     } else {
