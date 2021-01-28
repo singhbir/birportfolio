@@ -62,6 +62,7 @@ export function Portfolio(props: Props) {
               <div className="row ">
                 {portfolio.map(item => {
                   let newclass = `col-md-4 col-sm-6 mb-3 mt-3`;
+                  console.log('ITEM', item);
                   return (
                     <div className={newclass}>
                       <Projectcard
@@ -69,7 +70,7 @@ export function Portfolio(props: Props) {
                         subheading={item.subheading}
                         websiteurl={item.website}
                         githuburl={item.github}
-                        image={item.projectpic.url}
+                        image={item.profilepicurl}
                       />
                     </div>
                   );

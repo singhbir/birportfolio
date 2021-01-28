@@ -21,15 +21,15 @@ interface Props {
 }
 //
 export function Projectcard(props: Props) {
-  const imageurlarr = props.image.split('');
-  imageurlarr.shift();
-  const URL = baseURL + imageurlarr.join('');
-  console.log('URL', URL);
+  // const imageurlarr = props.image.split('');
+  // imageurlarr.shift();
+  // const URL = baseURL + imageurlarr.join('');
+  // console.log('URL', URL);
   return (
     <Div>
       <div className="positionrelative mainDiv overflow hoverme">
         <div className="mainDiv positionabsolute">
-          <img src={URL} width="100%" height="100%" />
+          <img src={props.image} width="100%" height="100%" />
         </div>
         <div className="secondDiv positionabsolute centerme transitions">
           <a href={props.websiteurl} target="_blanc" className="iconstyle">

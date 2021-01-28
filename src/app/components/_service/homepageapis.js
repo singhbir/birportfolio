@@ -29,9 +29,16 @@ const getProjects = async () => {
   return data;
 };
 
+const getContactDetails = async () => {
+  let response = await axios.get(baseURL + 'contactmes');
+  let data = response.data;
+  return data;
+};
+
 export default {
   getquotes,
   getSkillData,
   getResumeData,
   getProjects,
+  getContactDetails,
 };

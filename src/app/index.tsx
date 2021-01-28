@@ -17,6 +17,8 @@ import { useTranslation } from 'react-i18next';
 import { Aboutme } from './containers/Aboutme/Loadable';
 import { Resume } from './containers/Resume/Loadable';
 import { Portfolio } from './containers/Portfolio/Loadable';
+import { Contact } from './containers/Contact/Loadable';
+import { Blogs } from './containers/Blogs/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -34,6 +36,8 @@ export function App() {
         <Route exact path="/about" component={Aboutme} />
         <Route exact path="/resume" component={Resume} />
         <Route exact path="/portfolio" component={Portfolio} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/blogs" component={Blogs} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>

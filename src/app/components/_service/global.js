@@ -3,8 +3,8 @@ let object = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  object.domain = 'http://192.168.1.11:1337/';
+  object.domain = 'https://singhbirbackend.herokuapp.com/';
 } else {
-  object.domain = 'http://192.168.1.11:1337/';
+  object.domain = 'https://singhbirbackend.herokuapp.com/';
 }
 module.exports = object;
