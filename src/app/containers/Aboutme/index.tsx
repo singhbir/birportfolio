@@ -49,7 +49,8 @@ export function Aboutme({ history }) {
   const aboutme = useSelector(selectAboutme);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch();
-
+  const RESUME_URL =
+    'https://internshala.com/student/resume_download/F4E2BD37-7527-E177-9E52-6AD148E20986/8591494';
   const Aboutmesection = () => {
     return (
       <>
@@ -84,6 +85,11 @@ export function Aboutme({ history }) {
                 );
               })}
             </div>
+            <Button>
+              <a href="https://internshala.com/student/resume_download/F4E2BD37-7527-E177-9E52-6AD148E20986/8591494">
+                Download CV
+              </a>
+            </Button>
           </Col>
         </Row>
       </>
@@ -139,5 +145,24 @@ const Typodiv = styled.div`
   .common {
     font-size: 20px;
     font-family: 'Concert One', cursive;
+  }
+`;
+
+const Button = styled.button`
+  border: none;
+  letter-spacing: 1px;
+  padding: 10px 50px;
+  margin-bottom: 10%;
+  margin-top: 10%;
+  background: ${colors.fontblue};
+  color: white;
+  transition: 0.2s linear;
+  transform: scale(1, 1);
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  &:hover {
+    transform: scale(0.95, 0.95);
   }
 `;
