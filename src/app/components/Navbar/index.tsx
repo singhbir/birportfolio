@@ -149,7 +149,7 @@ export function NavbarPortfolio({ history }) {
         </div>
         <div className="flexprops d-flex flex-colum mt-3">
           <Styledul className="pr-3">
-            {navobj.map(item => {
+            {navobj.map((item,index) => {
               let finalClass = item.isactive
                 ? 'li py-2 hvr-sweep-to-right myactive'
                 : 'li py-2 hvr-sweep-to-right';
@@ -158,6 +158,7 @@ export function NavbarPortfolio({ history }) {
                   className={finalClass}
                   to={item.path}
                   onClick={handleActiveArea}
+                  key={index}
                 >
                   {item.title.toUpperCase()}
                 </NavLink>

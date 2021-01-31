@@ -63,23 +63,23 @@ export function HomePage({ history }) {
         <title>Home Page</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <MainLayout history={history}>
-        <Typostyles>
-          <Heading>
-            Hi, I am <span className="name">Bir Singh</span>
-          </Heading>
-          <br />
-          <Subheading>
-            I am a frontend web developer. I can provide clean code and pixel
-            perfect design. I also make website more & more interactive with web
-            animations.
-          </Subheading>
-          <SocialArea />
-        </Typostyles>
-        <div style={{ height: '100vh' }}>
-          <Particlesnow />
-        </div>
-      </MainLayout>
+      {/* <MainLayout history={history}> */}
+      <Typostyles>
+        <Heading>
+          Hi, I am <span className="name">Bir Singh</span>
+        </Heading>
+        <br />
+        <Subheading>
+          I am a frontend web developer. I can provide clean code and pixel
+          perfect design. I also make website more & more interactive with web
+          animations.
+        </Subheading>
+        <SocialArea />
+      </Typostyles>
+      <div style={{ height: '100vh' }}>
+        <Particlesnow />
+      </div>
+      {/* </MainLayout> */}
     </>
   );
 }

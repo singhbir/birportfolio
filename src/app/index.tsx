@@ -23,7 +23,7 @@ import { Blogs } from './containers/Blogs/Loadable';
 export function App() {
   const { i18n } = useTranslation();
   return (
-    <BrowserRouter>
+    <>
       <Helmet
         titleTemplate="%s - singhbir"
         defaultTitle="singhbir resume"
@@ -40,6 +40,6 @@ export function App() {
         <Route exact path="/blogs" component={Blogs} />
       </Switch>
       <GlobalStyle />
-    </BrowserRouter>
+    </>
   );
 }

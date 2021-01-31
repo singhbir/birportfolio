@@ -70,9 +70,9 @@ export function Aboutme({ history }) {
               web animations.
             </Subheading>
             <div className="mt-4">
-              {aboutmedata.map(item => {
+              {aboutmedata.map((item, index) => {
                 return (
-                  <Typodiv>
+                  <Typodiv key={item.heading + index}>
                     <Row>
                       <Col lg="4" md="4" sm="4" xs="4">
                         <h3 className="common">{item.heading}</h3>
@@ -101,9 +101,16 @@ export function Aboutme({ history }) {
       <>
         <Header title="Services" />
         <Row>
-          {servicedata.map(service => {
+          {servicedata.map((service, index) => {
             return (
-              <Col lg="6" md="6" sm="12" xs="12" className="mb-3">
+              <Col
+                lg="6"
+                md="6"
+                sm="12"
+                xs="12"
+                className="mb-3"
+                key={service.title + index}
+              >
                 <ServiceCard
                   icon={service.icon}
                   title={service.title}
@@ -123,12 +130,12 @@ export function Aboutme({ history }) {
         <title>Aboutme</title>
         <meta name="description" content="Description of Aboutme" />
       </Helmet>
-      <MainLayout history={history}>
-        <Div>
-          <Aboutmesection />
-          <ServiceSection />
-        </Div>
-      </MainLayout>
+      {/* <MainLayout history={history}> */}
+      <Div>
+        <Aboutmesection />
+        <ServiceSection />
+      </Div>
+      {/* </MainLayout> */}
     </>
   );
 }

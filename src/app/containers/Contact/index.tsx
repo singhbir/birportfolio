@@ -71,79 +71,79 @@ export function Contact(props: Props) {
         <title>Contact</title>
         <meta name="description" content="Description of Contact" />
       </Helmet>
-      <MainLayout history={props.history}>
-        <Div>
-          <div className="margin">
-            <Header title="Contact Me" />
-            <div className="row">
-              <div className="col-md-6">
-                <Formik
-                  initialValues={initialvalues}
-                  onSubmit={(data, { setSubmitting, resetForm }) => {
-                    setSubmitting(true);
-                    handleFormData(data);
-                    resetForm();
-                    setSubmitting(false);
-                  }}
-                  validationSchema={validationSchema.contactSchema}
-                >
-                  {myprops => {
-                    return (
-                      <Form>
-                        <CustomTextField
-                          label="Enter your name"
-                          name="name"
-                          type="text"
-                          {...myprops}
-                        />
-                        <CustomTextField
-                          label="Enter your email"
-                          name="email"
-                          type="text"
-                          {...myprops}
-                        />
-                        <CustomTextField
-                          label="Enter your subject"
-                          name="subject"
-                          type="text"
-                          {...myprops}
-                        />
-                        <CustomTextField
-                          label="Enter your message"
-                          name="message"
-                          type="text"
-                          {...myprops}
-                        />
-                        <Button type="submit">Send Mail</Button>
-                      </Form>
-                    );
-                  }}
-                </Formik>
-              </div>
-              <div className="col-md-6">
-                {contact.map(item => {
-                  let icon;
-                  if (item.type.toLowerCase() === 'phone') {
-                    icon = FiPhone;
-                  } else if (item.type.toLowerCase() === 'email') {
-                    icon = HiOutlineMail;
-                  } else {
-                    icon = IoLocationOutline;
-                  }
-
+      {/* <MainLayout history={props.history}> */}
+      <Div>
+        <div className="margin">
+          <Header title="Contact Me" />
+          <div className="row">
+            <div className="col-md-6">
+              <Formik
+                initialValues={initialvalues}
+                onSubmit={(data, { setSubmitting, resetForm }) => {
+                  setSubmitting(true);
+                  handleFormData(data);
+                  resetForm();
+                  setSubmitting(false);
+                }}
+                validationSchema={validationSchema.contactSchema}
+              >
+                {myprops => {
                   return (
-                    <ContactCard
-                      icon={icon}
-                      title={item.type.toUpperCase()}
-                      subtitle={item.detail.data}
-                    />
+                    <Form>
+                      <CustomTextField
+                        label="Enter your name"
+                        name="name"
+                        type="text"
+                        {...myprops}
+                      />
+                      <CustomTextField
+                        label="Enter your email"
+                        name="email"
+                        type="text"
+                        {...myprops}
+                      />
+                      <CustomTextField
+                        label="Enter your subject"
+                        name="subject"
+                        type="text"
+                        {...myprops}
+                      />
+                      <CustomTextField
+                        label="Enter your message"
+                        name="message"
+                        type="text"
+                        {...myprops}
+                      />
+                      <Button type="submit">Send Mail</Button>
+                    </Form>
                   );
-                })}
-              </div>
+                }}
+              </Formik>
+            </div>
+            <div className="col-md-6">
+              {contact.map(item => {
+                let icon;
+                if (item.type.toLowerCase() === 'phone') {
+                  icon = FiPhone;
+                } else if (item.type.toLowerCase() === 'email') {
+                  icon = HiOutlineMail;
+                } else {
+                  icon = IoLocationOutline;
+                }
+
+                return (
+                  <ContactCard
+                    icon={icon}
+                    title={item.type.toUpperCase()}
+                    subtitle={item.detail.data}
+                  />
+                );
+              })}
             </div>
           </div>
-        </Div>
-      </MainLayout>
+        </div>
+      </Div>
+      {/* </MainLayout> */}
     </>
   );
 }

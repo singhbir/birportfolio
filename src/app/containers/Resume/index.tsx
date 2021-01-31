@@ -74,7 +74,7 @@ export function Resume(props: Props) {
         <title>Resume</title>
         <meta name="description" content="Description of Resume" />
       </Helmet>
-      <MainLayout history={props.history}>
+      {/* <MainLayout history={props.history}> */}
         <Div>
           <Header title="my skills" />
           <Row>
@@ -132,7 +132,7 @@ export function Resume(props: Props) {
             <Loaderbars />
           )}
         </Div>
-      </MainLayout>
+      {/* </MainLayout> */}
     </>
   );
 }

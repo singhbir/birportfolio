@@ -52,34 +52,34 @@ export function Portfolio(props: Props) {
         <title>Portfolio</title>
         <meta name="description" content="Description of Portfolio" />
       </Helmet>
-      <MainLayout history={props.history}>
-        <Div>
-          <Header title="Portfolios" />
-          {loading ? (
-            <Loaderbars />
-          ) : (
-            <Margin>
-              <div className="row ">
-                {portfolio.map(item => {
-                  let newclass = `col-md-4 col-sm-6 mb-3 mt-3`;
-                  console.log('ITEM', item);
-                  return (
-                    <div className={newclass}>
-                      <Projectcard
-                        heading={item.heading}
-                        subheading={item.subheading}
-                        websiteurl={item.website}
-                        githuburl={item.github}
-                        image={item.profilepicurl}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </Margin>
-          )}
-        </Div>
-      </MainLayout>
+      {/* <MainLayout history={props.history}> */}
+      <Div>
+        <Header title="Portfolios" />
+        {loading ? (
+          <Loaderbars />
+        ) : (
+          <Margin>
+            <div className="row ">
+              {portfolio.map(item => {
+                let newclass = `col-md-4 col-sm-6 mb-3 mt-3`;
+                console.log('ITEM', item);
+                return (
+                  <div className={newclass}>
+                    <Projectcard
+                      heading={item.heading}
+                      subheading={item.subheading}
+                      websiteurl={item.website}
+                      githuburl={item.github}
+                      image={item.profilepicurl}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </Margin>
+        )}
+      </Div>
+      {/* </MainLayout> */}
     </>
   );
 }

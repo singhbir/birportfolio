@@ -36,9 +36,9 @@ export function Blogs(props: Props) {
         <meta name="description" content="Description of Blogs" />
       </Helmet>
       <Div>
-        <MainLayout history={props.history}>
-          <Header title="coming soon" />
-        </MainLayout>
+        {/* <MainLayout history={props.history}> */}
+        <Header title="coming soon" />
+        {/* </MainLayout> */}
       </Div>
     </>
   );
