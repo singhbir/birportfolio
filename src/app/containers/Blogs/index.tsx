@@ -15,6 +15,7 @@ import { selectBlogs } from './selectors';
 import { blogsSaga } from './saga';
 import { MainLayout } from 'app/components/MainLayout/Loadable';
 import { Header } from 'app/components/Header/Loadable';
+import { BlogCard } from 'app/components/BlogCard/Loadable';
 
 interface Props {
   history: object;
@@ -35,13 +36,24 @@ export function Blogs(props: Props) {
         <title>Blogs</title>
         <meta name="description" content="Description of Blogs" />
       </Helmet>
-      <Div>
+      <Div className="mx-1">
         {/* <MainLayout history={props.history}> */}
-        <Header title="coming soon" />
+        <div className="headerdiv">
+          <Header title="Coming Soon" />
+        </div>
+        {/* <div className="row">
+          <div className="col-md-6 col-sm-12">
+            <BlogCard />
+          </div>
+        </div> */}
         {/* </MainLayout> */}
       </Div>
     </>
   );
 }
 
-const Div = styled.div``;
+const Div = styled.div`
+  .headerdiv {
+    margin-top: 7%;
+  }
+`;

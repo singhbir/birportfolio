@@ -41,8 +41,16 @@ export function Header(props: Props) {
 
 const Div = styled.div`
   position: relative;
-  margin-top: ${(props: styledDivProps) => (props.ismobile ? '20%' : '0%')};
-  margin-bottom: ${(props: styledDivProps) => (props.ismobile ? '20%' : '10%')};
+  /* margin-top: ${(props: styledDivProps) =>
+    props.ismobile ? '20%' : '0%'};
+  margin-bottom: ${(props: styledDivProps) =>
+    props.ismobile ? '20%' : '10%'}; */
+  margin-top: 0%;
+  margin-bottom: 10%;
+  @media (max-width: 768px) {
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
 `;
 const H2 = styled.h2`
   color: white;

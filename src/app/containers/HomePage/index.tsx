@@ -9,7 +9,6 @@ import { selectQuotes, selectLoading, selectError } from './selectors';
 import { CardLayout } from 'app/components/CardLayout';
 import { Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Graph } from 'app/components/Graph/Loadable';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import { Particlesnow } from 'app/components/Particlesnow';

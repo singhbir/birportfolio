@@ -50,7 +50,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     >
       <Row
         style={isMobile ? mobilestyle : webstyle}
-        className={isMobile ? 'position-absolute' : ''}
+        className={isMobile ? 'position-fixed' : ''}
       >
         <NavbarPortfolio history={history} />
       </Row>

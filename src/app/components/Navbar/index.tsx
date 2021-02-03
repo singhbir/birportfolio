@@ -97,6 +97,7 @@ const NavMobileIcon = styled.div`
   align-items: center;
   background-color: ${colors.navpurpleblue};
   color: white;
+  border: 2px solid #2e344e;
 `;
 
 export function NavbarPortfolio({ history }) {
@@ -149,7 +150,7 @@ export function NavbarPortfolio({ history }) {
         </div>
         <div className="flexprops d-flex flex-colum mt-3">
           <Styledul className="pr-3">
-            {navobj.map((item,index) => {
+            {navobj.map((item, index) => {
               let finalClass = item.isactive
                 ? 'li py-2 hvr-sweep-to-right myactive'
                 : 'li py-2 hvr-sweep-to-right';
