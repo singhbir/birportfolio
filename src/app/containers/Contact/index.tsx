@@ -11,6 +11,7 @@ import styled from 'styled-components/macro';
 import axios from 'axios';
 import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 import { contactActions, reducer, sliceKey } from './slice';
+import { motion } from 'framer-motion';
 import {
   selectContact,
   selectLoadContact,
@@ -27,6 +28,8 @@ import { FiPhone } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
 import { IoLocationOutline } from 'react-icons/io5';
 import validationSchema from '../../components/_service/validationschema';
+import { pageTransition } from '../../../styles/animation';
+
 require('dotenv').config();
 
 interface Props {
@@ -72,7 +75,7 @@ export function Contact(props: Props) {
         <meta name="description" content="Description of Contact" />
       </Helmet>
       {/* <MainLayout history={props.history}> */}
-      <Div>
+      <Div variants={pageTransition} initial="out" animate="in" exit="out">
         <div className="margin">
           <Header title="Contact Me" />
           <div className="row">
@@ -148,7 +151,7 @@ export function Contact(props: Props) {
   );
 }
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   .margin {
     margin-left: 20px;
     margin-top: 50px;

@@ -14,6 +14,8 @@ import 'react-awesome-slider/dist/styles.css';
 import { Particlesnow } from 'app/components/Particlesnow';
 import colors from 'styles/colors';
 import { SocialArea } from 'app/components/SocialArea/Loadable';
+import { motion } from 'framer-motion';
+import { pageTransition } from '../../../styles/animation';
 
 const Heading = styled.span`
   font-family: 'Concert One', cursive;
@@ -27,11 +29,11 @@ const Heading = styled.span`
   }
 `;
 
-const Typostyles = styled.div`
+const Typostyles = styled(motion.div)`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
 `;
 
 const Subheading = styled.div`
@@ -63,7 +65,12 @@ export function HomePage({ history }) {
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       {/* <MainLayout history={history}> */}
-      <Typostyles>
+      <Typostyles
+        variants={pageTransition}
+        initial="out"
+        animate="in"
+        exit="out"
+      >
         <Heading>
           Hi, I am <span className="name">Bir Singh</span>
         </Heading>

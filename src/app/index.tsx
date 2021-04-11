@@ -8,8 +8,8 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-
+import { Switch, Route, BrowserRouter, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { GlobalStyle } from 'styles/global-styles';
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
@@ -22,6 +22,7 @@ import { Blogs } from './containers/Blogs/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
+  const location = useLocation();
   return (
     <>
       <Helmet
@@ -31,14 +32,16 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/about" component={Aboutme} />
-        <Route exact path="/resume" component={Resume} />
-        <Route exact path="/portfolio" component={Portfolio} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/blogs" component={Blogs} />
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/about" component={Aboutme} />
+          <Route exact path="/resume" component={Resume} />
+          <Route exact path="/portfolio" component={Portfolio} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/blogs" component={Blogs} />
+        </Switch>
+      </AnimatePresence>
       <GlobalStyle />
     </>
   );

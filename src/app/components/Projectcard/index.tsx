@@ -26,7 +26,7 @@ export function Projectcard(props: Props) {
   // const URL = baseURL + imageurlarr.join('');
   // console.log('URL', URL);
   return (
-    <Div>
+    <Div data-aos="fade-up">
       <div className="positionrelative mainDiv overflow hoverme">
         <div className="mainDiv positionabsolute">
           <img src={props.image} width="100%" height="100%" />

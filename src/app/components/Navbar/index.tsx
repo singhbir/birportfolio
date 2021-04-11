@@ -65,6 +65,7 @@ const Maindiv = styled.div`
   position: fixed;
   height: 100%;
   background: ${colors.navpurpleblue};
+
   .flexprops {
     flex: 1;
     width: 100%;
@@ -128,6 +129,9 @@ export function NavbarPortfolio({ history }) {
     });
     newobj.map(item => {
       if (item.path === history.location.pathname) {
+        if (item.path.includes('/blogs')) {
+          item.isactive = true;
+        }
         item.isactive = true;
       }
     });
@@ -138,7 +142,11 @@ export function NavbarPortfolio({ history }) {
     return (
       <Maindiv
         className="py-4"
-        style={mobile ? { width: '70vw', height: '100vh' } : {}}
+        style={
+          mobile
+            ? { width: '70vw', height: '100vh', zIndex: 1000 }
+            : { zIndex: 1000 }
+        }
       >
         <div className="ml-2 pb-4 imagearea">
           <Img

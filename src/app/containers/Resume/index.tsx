@@ -26,6 +26,8 @@ import { Loaderbars } from 'app/components/Loaderbars/Loadable';
 import { Expbar } from 'app/components/Expbar/Loadable';
 import { RiSuitcaseLine } from 'react-icons/ri';
 import { BiBook } from 'react-icons/bi';
+import { pageTransition } from 'styles/animation';
+import { motion } from 'framer-motion';
 
 interface Props {
   history: object;
@@ -75,69 +77,69 @@ export function Resume(props: Props) {
         <meta name="description" content="Description of Resume" />
       </Helmet>
       {/* <MainLayout history={props.history}> */}
-        <Div>
-          <Header title="my skills" />
-          <Row>
-            {!loading ? (
-              error === null ? (
-                skillData.map((item, i) => {
-                  return (
-                    <SkillPresenter
-                      title={item.title}
-                      per={item.percentage}
-                      key={i}
-                    />
-                  );
-                })
-              ) : (
-                <h1 className="text-white">Something went wrong...</h1>
-              )
+      <Div variants={pageTransition} initial="out" animate="in" exit="out">
+        <Header title="my skills" />
+        <Row>
+          {!loading ? (
+            error === null ? (
+              skillData.map((item, i) => {
+                return (
+                  <SkillPresenter
+                    title={item.title}
+                    per={item.percentage}
+                    key={i}
+                  />
+                );
+              })
             ) : (
-              <Loaderbars />
-            )}
-          </Row>
-          <div className="headermargin">
-            <Header title="Resume" />
-          </div>
-          {!loadingResumeData ? (
-            <>
-              <div>
-                <h4 className="subhead">
-                  <RiSuitcaseLine className="icon" />
-                  &nbsp; Working Experience
-                </h4>
-                <div>
-                  {resumeData.length <= 0 && !loadingResumeData ? (
-                    <h1 className="text-white">Updating ...</h1>
-                  ) : (
-                    <Expbar data={resumeData} vidata={'work'} />
-                  )}
-                </div>
-              </div>
-              <div>
-                <h4 className="subhead">
-                  <BiBook className="icon" />
-                  &nbsp; Educational Qualifications
-                </h4>
-                <div>
-                  {resumeData.length <= 0 && !loadingResumeData ? (
-                    <h1 className="text-white">Updating ...</h1>
-                  ) : (
-                    <Expbar data={resumeData} vidata={'edu'} />
-                  )}
-                </div>
-              </div>
-            </>
+              <h1 className="text-white">Something went wrong...</h1>
+            )
           ) : (
             <Loaderbars />
           )}
-        </Div>
+        </Row>
+        <div className="headermargin">
+          <Header title="Resume" />
+        </div>
+        {!loadingResumeData ? (
+          <>
+            <div>
+              <h4 className="subhead">
+                <RiSuitcaseLine className="icon" />
+                &nbsp; Working Experience
+              </h4>
+              <div>
+                {resumeData.length <= 0 && !loadingResumeData ? (
+                  <h1 className="text-white">Updating ...</h1>
+                ) : (
+                  <Expbar data={resumeData} vidata={'work'} />
+                )}
+              </div>
+            </div>
+            <div>
+              <h4 className="subhead">
+                <BiBook className="icon" />
+                &nbsp; Educational Qualifications
+              </h4>
+              <div>
+                {resumeData.length <= 0 && !loadingResumeData ? (
+                  <h1 className="text-white">Updating ...</h1>
+                ) : (
+                  <Expbar data={resumeData} vidata={'edu'} />
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          <Loaderbars />
+        )}
+      </Div>
       {/* </MainLayout> */}
     </>
   );
 }
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   margin-left: 2%;
   margin-top: 5%;
   margin-right: 2%;

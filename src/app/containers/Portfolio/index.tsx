@@ -21,6 +21,8 @@ import { Header } from 'app/components/Header/Loadable';
 import { MainLayout } from 'app/components/MainLayout/Loadable';
 import { Projectcard } from 'app/components/Projectcard/Loadable';
 import { Loaderbars } from 'app/components/Loaderbars/Loadable';
+import { motion } from 'framer-motion';
+import { pageTransition } from '../../../styles/animation';
 
 interface Props {
   history: object;
@@ -53,7 +55,7 @@ export function Portfolio(props: Props) {
         <meta name="description" content="Description of Portfolio" />
       </Helmet>
       {/* <MainLayout history={props.history}> */}
-      <Div>
+      <Div variants={pageTransition} initial="out" animate="in" exit="out">
         <Header title="Portfolios" />
         {loading ? (
           <Loaderbars />
@@ -84,7 +86,7 @@ export function Portfolio(props: Props) {
   );
 }
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   margin-top: 50px;
   margin-left: 10px;
 `;

@@ -16,6 +16,7 @@ import { blogsSaga } from './saga';
 import { MainLayout } from 'app/components/MainLayout/Loadable';
 import { Header } from 'app/components/Header/Loadable';
 import { BlogCard } from 'app/components/BlogCard/Loadable';
+import { Link } from 'react-router-dom';
 
 interface Props {
   history: object;
@@ -43,7 +44,9 @@ export function Blogs(props: Props) {
         </div>
         {/* <div className="row">
           <div className="col-md-6 col-sm-12">
-            <BlogCard />
+            <Link to={`/blogs/1`} style={{ textDecoration: 'none' }}>
+              <BlogCard />
+            </Link>
           </div>
         </div> */}
         {/* </MainLayout> */}

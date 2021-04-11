@@ -20,6 +20,8 @@ import colors from 'styles/colors';
 import aboutmedata from '../../components/_service/data/aboutmedata';
 import { ServiceCard } from 'app/components/ServiceCard/Loadable';
 import servicedata from '../../components/_service/data/servicedata';
+import { motion } from 'framer-motion';
+import { pageTransition } from '../../../styles/animation';
 
 const Heading = styled.span`
   font-family: 'Concert One', cursive;
@@ -131,7 +133,7 @@ export function Aboutme({ history }) {
         <meta name="description" content="Description of Aboutme" />
       </Helmet>
       {/* <MainLayout history={history}> */}
-      <Div>
+      <Div variants={pageTransition} initial="out" animate="in" exit="out">
         <Aboutmesection />
         <ServiceSection />
       </Div>
@@ -140,7 +142,7 @@ export function Aboutme({ history }) {
   );
 }
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   margin-left: 2%;
   margin-top: 5%;
   margin-right: 2%;
