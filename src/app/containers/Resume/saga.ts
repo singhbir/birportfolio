@@ -1,12 +1,29 @@
 import homepageapis from 'app/components/_service/homepageapis';
 import { take, call, put, select, takeLatest, delay } from 'redux-saga/effects';
 import { resumeActions } from './slice';
+import db from 'utils/Fire';
+import { getDataFromFireDB } from 'utils/firehelper';
+
+const getSkillDataFromFireBase = () => {
+  return db
+    .collection('skills')
+    .get()
+    .then(snapshot => {
+      const data = snapshot.docs.map(doc => doc.data());
+      return Promise.resolve(data);
+    })
+    .catch(err => {
+      return Promise.reject(err);
+    });
+};
 
 export function* resumeWorker() {
   yield delay(500);
   try {
-    let data = yield call(homepageapis.getSkillData);
-    let resumedata = yield call(homepageapis.getResumeData);
+    //let data = yield call(homepageapis.getSkillData);
+    //let resumedata = yield call(homepageapis.getResumeData);
+    let data = yield getSkillDataFromFireBase();
+    let resumeData = yield getDataFromFireDB('resumes');
     yield put(resumeActions.loadResumeData());
     if (data?.length > 0) {
       yield put(resumeActions.successSkillData(data));
@@ -14,8 +31,8 @@ export function* resumeWorker() {
       yield put(resumeActions.failSkillData('No Data Found'));
     }
 
-    if (resumedata?.length > 0) {
-      yield put(resumeActions.successResumeData(resumedata));
+    if (resumeData?.length > 0) {
+      yield put(resumeActions.successResumeData(resumeData));
     } else {
       yield put(resumeActions.failResumeData('No Data Found'));
     }

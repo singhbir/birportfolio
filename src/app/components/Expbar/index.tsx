@@ -59,7 +59,6 @@ export function Expbar(props: Props) {
     <Div>
       <UL>
         {visualData.map((item, i) => {
-          console.log('ITEM', item);
           return (
             <LI color={bluecolor} key={i}>
               <Description

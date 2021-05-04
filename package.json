@@ -31,6 +31,7 @@
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react-hooks": "4.1.0",
+    "firebase": "8.4.3",
     "fontfaceobserver": "2.1.0",
     "formik": "2.2.6",
     "framer-motion": "4.1.3",

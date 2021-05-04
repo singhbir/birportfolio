@@ -28,6 +28,7 @@ import { RiSuitcaseLine } from 'react-icons/ri';
 import { BiBook } from 'react-icons/bi';
 import { pageTransition } from 'styles/animation';
 import { motion } from 'framer-motion';
+import db from 'utils/Fire';
 
 interface Props {
   history: object;
@@ -84,11 +85,7 @@ export function Resume(props: Props) {
             error === null ? (
               skillData.map((item, i) => {
                 return (
-                  <SkillPresenter
-                    title={item.title}
-                    per={item.percentage}
-                    key={i}
-                  />
+                  <SkillPresenter title={item.title} per={item.value} key={i} />
                 );
               })
             ) : (
