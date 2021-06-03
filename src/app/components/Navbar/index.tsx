@@ -6,7 +6,7 @@
 import * as React from 'react';
 import colors from '../../../styles/colors';
 import styled, { keyframes } from 'styled-components';
-import birimg from '../../../assets/images/bir.jpeg';
+import birimg from '../../../assets/images/bir4.jpg';
 import { NavLink } from 'react-router-dom';
 import navdata from './navdata';
 import { AiOutlineCaretRight, AiOutlineCaretLeft } from 'react-icons/ai';
