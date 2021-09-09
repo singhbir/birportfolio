@@ -88,7 +88,7 @@ export function Aboutme({ history }) {
               })}
             </div>
             <Button>
-              <a href="https://internshala.com/student/resume_download/F4E2BD37-7527-E177-9E52-6AD148E20986/8591494">
+              <a href="https://pdfhost.io/v/gkps6~lkl_Birvarinder_Singh_Resume" target="_blank" rel="noreferrer noopener">
                 Download CV
               </a>
             </Button>
